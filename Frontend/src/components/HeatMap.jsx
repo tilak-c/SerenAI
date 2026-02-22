@@ -9,7 +9,7 @@ export default function HeatMap() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_BASE_URI}/emotions/heatmap`)
+      .get(`${import.meta.env.VITE_BACKEND_BASE_URI}/emotions/heatmap`,{withCredentials:true})
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   }, []);

@@ -35,7 +35,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_BASE_URI}/emotions`)
+      .get(`${import.meta.env.VITE_BACKEND_BASE_URI}/emotions`,{withCredentials:true})
       .then((res) => {
         if (!res.data || res.data.length === 0) {
           setInsight("No emotional data yet.");
