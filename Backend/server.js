@@ -19,7 +19,8 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://seren-ai-vshy.vercel.app/"
+    "https://seren-ai-vshy.vercel.app/",
+    "https://seren-ai-vshy.vercel.app"
 ]
 
 app.use(cors({
