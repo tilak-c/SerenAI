@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { getChatById, logoutUser } from "../services/api";
+import { logoutUser } from "../services/api";
 import API from "../services/api";
 import ChatMessage from "../components/ChatMessage";
 
@@ -17,15 +17,11 @@ export default function Chat({ activeChat }) {
 
   useEffect(() => {
     if (activeChat) {
+      setChatId(activeChat);
       setLoading(true);
 
-      getChatById(activeChat)
-        .then((res) => {
-          setMessages(res.data?.messages || []);
-        })
-        .catch((err) => {
-          console.error(err);
-        })
+      API.get(`/chat/${activeChat}`, {withCredentials:true})
+        .then((res) => setMessages(res.data?.messages || []))
         .finally(() => setLoading(false));
     }
   }, [activeChat]);
@@ -52,7 +48,8 @@ export default function Chat({ activeChat }) {
 
       if (!chatId) setChatId(updatedChat._id);
 
-      const lastMessage = updatedChat.messages[updatedChat.messages.length - 1];
+      const lastMessage =
+        updatedChat.messages[updatedChat.messages.length - 1];
 
       setMessages((prev) => [
         ...prev,
@@ -66,17 +63,19 @@ export default function Chat({ activeChat }) {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-    } catch (err) {
-      console.log(err);
-      console.log("Logout API failed, continuing logout");
-    }
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate("/login");
-  };
+const handleLogout = async () => {
+
+  try {
+    await logoutUser();
+  } catch (err) {
+    console.log(err);
+    console.log("Logout API failed, continuing logout");
+  }
+  localStorage.removeItem("user");
+  setUser(null);
+  navigate("/login");
+
+};
 
   return (
     <div style={styles.container}>
@@ -110,68 +109,70 @@ export default function Chat({ activeChat }) {
   );
 }
 const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1, // ⭐ CRITICAL
-    height: "100vh",
-    background: "#071a12",
-    minHeight: 0, // ⭐ CRITICAL
-  },
 
-  messages: {
-    flex: 1,
-    overflowY: "auto",
-    padding: "30px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-    minHeight: 0, // ⭐ CRITICAL
-  },
+container: {
+  display: "flex",
+  flexDirection: "column",
+  flex: 1,              // ⭐ CRITICAL
+  height: "100vh",
+  background: "#071a12",
+  minHeight: 0          // ⭐ CRITICAL
+},
 
-  bottomRow: {
-    display: "flex",
-    alignItems: "center",
-    padding: "15px 20px",
-    background: "#0f2e22",
-    gap: "20px",
-  },
+messages: {
+  flex: 1,
+  overflowY: "auto",
+  padding: "30px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "15px",
+  minHeight: 0          // ⭐ CRITICAL
+},
 
-  inputBar: {
-    display: "flex",
-    flex: 1,
-    gap: "12px",
-  },
+bottomRow: {
+  display: "flex",
+  alignItems: "center",
+  padding: "15px 20px",
+  background: "#0f2e22",
+  gap: "20px"
+},
 
-  input: {
-    flex: 1,
-    padding: "16px",
-    borderRadius: "12px",
-    border: "1px solid rgba(52,211,153,0.3)",
-    background: "#071a12",
-    color: "#d1fae5",
-  },
+inputBar: {
+  display: "flex",
+  flex: 1,
+  gap: "12px"
+},
 
-  button: {
-    padding: "16px 28px",
-    borderRadius: "12px",
-    border: "none",
-    background: "#34d399",
-    color: "#071a12",
-    cursor: "pointer",
-  },
+input: {
+  flex: 1,
+  padding: "16px",
+  borderRadius: "12px",
+  border: "1px solid rgba(52,211,153,0.3)",
+  background: "#071a12",
+  color: "#d1fae5"
+},
 
-  logoutButton: {
-    padding: "14px 20px",
-    borderRadius: "12px",
-    border: "1px solid #f87171",
-    background: "transparent",
-    color: "#f87171",
-    cursor: "pointer",
-  },
+button: {
+  padding: "16px 28px",
+  borderRadius: "12px",
+  border: "none",
+  background: "#34d399",
+  color: "#071a12",
+  cursor: "pointer"
+},
 
-  typing: {
-    color: "#a7f3d0",
-    fontStyle: "italic",
-  },
+logoutButton: {
+  padding: "14px 20px",
+  borderRadius: "12px",
+  border: "1px solid #f87171",
+  background: "transparent",
+  color: "#f87171",
+  cursor: "pointer"
+},
+
+typing: {
+  color: "#a7f3d0",
+  fontStyle: "italic"
+}
+
 };

@@ -19,7 +19,6 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://seren-ai-vshy.vercel.app/",
     "https://seren-ai-vshy.vercel.app"
 ]
 
@@ -39,17 +38,33 @@ app.use(cors({
 
 app.use(express.json());
 
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false,
+//   store: MongoStore.create({
+//     mongoUrl: process.env.MONGO_URI
+//   }),
+//   cookie: {
+//     httpOnly: true,
+//     secure: false,
+//     maxAge: 7 * 24 * 60 * 60 * 1000
+//   }
+// }));
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI
   }),
+
   cookie: {
+    secure: true,        // REQUIRED for HTTPS (Vercel)
     httpOnly: true,
-    secure: false,
-    maxAge: 7 * 24 * 60 * 60 * 1000
+    sameSite: "none"     // REQUIRED for cross-site
   }
 }));
 

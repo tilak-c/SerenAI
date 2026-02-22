@@ -90,7 +90,7 @@ sidebar: {
   display: "flex",
   flexDirection: "column",
 
-  padding: "24px 16px",   // ⭐ FIX: proper padding
+  padding: "24px 16px",  
 
   boxSizing: "border-box",
 

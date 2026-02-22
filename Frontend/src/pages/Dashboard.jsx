@@ -25,7 +25,7 @@ export default function Dashboard() {
     const last = data[data.length - 1].score;
 
     if (last > first) {
-      setInsight("Your mood has been improving over time 🌿");
+      setInsight("Your mood has been improving over time");
     } else if (last < first) {
       setInsight("There has been a recent emotional dip.");
     } else {
