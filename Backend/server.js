@@ -48,6 +48,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 
+  proxy: true, 
+
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI
   }),

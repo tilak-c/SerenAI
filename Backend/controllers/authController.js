@@ -22,15 +22,23 @@ export const registerUser = async (req, res) => {
     });
 
     req.session.userId = user._id;
+    
+req.session.save(err => {
 
-    res.json({
-      message: "Registered successfully",
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email
-      }
-    });
+  if (err) {
+    return res.status(500).json({ message: "Session save failed" });
+  }
+
+  res.json({
+    message: "Registered successfully",
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email
+    }
+  });
+
+});
 
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -58,15 +66,23 @@ export const loginUser = async (req, res) => {
     }
 
     req.session.userId = user._id;
+req.session.save(err => {
 
-    res.json({
-      message: "Login successful",
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email
-      }
-    });
+  if (err) {
+    return res.status(500).json({ message: "Session save failed" });
+  }
+
+  res.json({
+    message: "Login successful",
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email
+    }
+  });
+
+});
+
 
   } catch (error) {
     res.status(500).json({ message: error.message });
