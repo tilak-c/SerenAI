@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
-app.set("trust proxy", 1);   // ⭐ CRITICAL FIX
+app.set("trust proxy", 1);  
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -55,9 +55,9 @@ app.use(session({
   }),
 
   cookie: {
-    secure: true,
+    secure: false,
     httpOnly: true,
-    sameSite: "none",
+    sameSite: "lax",
     maxAge: 7 * 24 * 60 * 60 * 1000
   }
 }));

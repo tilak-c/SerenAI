@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { logoutUser } from "../services/api";
 import API from "../services/api";
 import ChatMessage from "../components/ChatMessage";
-
+import { toast } from "react-toastify";
 export default function Chat({ activeChat }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -57,7 +57,7 @@ export default function Chat({ activeChat }) {
       ]);
     } catch (err) {
       console.error("CHAT ERROR:", err);
-      alert("Backend error. Check terminal.");
+      toast.error("Backend error. Check terminal.");
     } finally {
       setLoading(false);
     }

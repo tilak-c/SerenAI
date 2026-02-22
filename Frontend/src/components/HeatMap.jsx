@@ -21,7 +21,7 @@ export default function HeatMap() {
           new Date(new Date().setMonth(new Date().getMonth() - 3))
         }
         endDate={new Date()}
-        values={data}
+        values={Array.isArray(data) ? data : []}
         gutterSize={3}
         showWeekdayLabels={false}
         classForValue={(value) => {

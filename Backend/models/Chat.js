@@ -9,13 +9,27 @@ const messageSchema = new mongoose.Schema({
   }
 });
 
+
 const chatSchema = new mongoose.Schema({
-  title: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+
+  title: {
+    type: String,
+    default: "New Chat"
+  },
+
   messages: [messageSchema],
+
   createdAt: {
     type: Date,
     default: Date.now
   }
+
 });
+
 
 export default mongoose.model("Chat", chatSchema);

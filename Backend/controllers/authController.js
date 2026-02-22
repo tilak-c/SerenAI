@@ -20,7 +20,7 @@ export const registerUser = async (req, res) => {
       email,
       password: hashed
     });
-
+    console.log(user._id)
     req.session.userId = user._id;
     
 req.session.save(err => {
@@ -64,7 +64,7 @@ export const loginUser = async (req, res) => {
         message: "Invalid credentials"
       });
     }
-
+    console.log(user._id)
     req.session.userId = user._id;
 req.session.save(err => {
 
