@@ -17,8 +17,22 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://seren-ai-vshy.vercel.app/"
+]
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: function (origin, callback) {
+    if(!origin) return callback(null, true);
+
+    if(allowedOrigins.includes(origin)) {
+        callback(null, true);
+    } else {
+        callback(new Error("Not allowed by CORS"));
+    }
+
+  },
   credentials: true
 }));
 
