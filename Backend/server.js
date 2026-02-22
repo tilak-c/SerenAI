@@ -17,19 +17,23 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
+app.set("trust proxy", 1);   // ⭐ CRITICAL FIX
+
 const allowedOrigins = [
-    "http://localhost:5173",
-    "https://seren-ai-vshy.vercel.app"
-]
+  "http://localhost:5173",
+  "https://seren-ai-vshy.vercel.app"
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if(!origin) return callback(null, true);
 
-    if(allowedOrigins.includes(origin)) {
-        callback(null, true);
-    } else {
-        callback(new Error("Not allowed by CORS"));
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    }
+    else {
+      callback(new Error("Not allowed by CORS"));
     }
 
   },
@@ -38,22 +42,9 @@ app.use(cors({
 
 app.use(express.json());
 
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: false,
-//   store: MongoStore.create({
-//     mongoUrl: process.env.MONGO_URI
-//   }),
-//   cookie: {
-//     httpOnly: true,
-//     secure: false,
-//     maxAge: 7 * 24 * 60 * 60 * 1000
-//   }
-// }));
-
 app.use(session({
   secret: process.env.SESSION_SECRET,
+
   resave: false,
   saveUninitialized: false,
 
@@ -62,9 +53,10 @@ app.use(session({
   }),
 
   cookie: {
-    secure: true,        // REQUIRED for HTTPS (Vercel)
+    secure: true,
     httpOnly: true,
-    sameSite: "none"     // REQUIRED for cross-site
+    sameSite: "none",
+    maxAge: 7 * 24 * 60 * 60 * 1000
   }
 }));
 
