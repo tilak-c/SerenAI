@@ -1,0 +1,8 @@
+npm init -y
+npm install @google/generative-ai
+npm install --save-dev nodemon
+npm install express mongoose cors dotenv 
+npm install mongodb
+npm install node-cron
+npm install bcryptjs jsonwebtoken
+npm install express-session connect-mongo bcryptjs

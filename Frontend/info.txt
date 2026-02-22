@@ -1,0 +1,3 @@
+npm install recharts axios
+npm install react-router-dom
+npm install react-calendar-heatmap

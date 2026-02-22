@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+input, textarea {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.react-calendar-heatmap .color-empty {
+  fill: #1e293b;
+}
+.react-calendar-heatmap .color-light {
+  fill: #4f46e5;
+}
+.react-calendar-heatmap .color-medium {
+  fill: #6366f1;
+}
+.react-calendar-heatmap .color-strong {
+  fill: #a78bfa;
+}
+
+.react-calendar-heatmap rect {
+  rx: 2px;
+  ry: 2px;
+}
+
+.react-calendar-heatmap {
+  font-size: 10px;
+}
+
+.react-calendar-heatmap rect {
+  width: 8px !important;
+  height: 8px !important;
+  rx: 3px;
+  ry: 3px;
+}
+
+.react-calendar-heatmap text {
+  font-size: 10px !important;
+}
+.react-calendar-heatmap .color-empty {
+  fill: #0f2e22;
+}
+
+.react-calendar-heatmap .color-light {
+  fill: #14532d;
+}
+
+.react-calendar-heatmap .color-medium {
+  fill: #1f5c3f;
+}
+
+.react-calendar-heatmap .color-strong {
+  fill: #34d399;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #071a12;
+}
+
+a {
+  text-decoration: none;
+  color: #34d399; /* emerald green */
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: #6ee7b7; /* lighter emerald */
+}
