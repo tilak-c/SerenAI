@@ -56,9 +56,9 @@ app.use(session({
   }),
 
   cookie: {
-    secure: true,//false if failed
+    secure: false,//false if failed
     httpOnly: true,
-    sameSite: "none",//lax if failed
+    sameSite: "lax",//lax if failed
     maxAge: 7 * 24 * 60 * 60 * 1000
   }
 }));
