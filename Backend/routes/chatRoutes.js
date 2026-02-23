@@ -10,8 +10,8 @@ import { protect } from "../middleware/protect.js";
 const router = express.Router();
 
 router.post("/", sendMessage);
-router.get("/", protect, getAllChats);
-router.get("/:id", protect, getChatById);
-router.delete("/:id", protect, deleteChat);
+router.get("/", getAllChats);
+router.get("/:id",getChatById);
+router.delete("/:id", deleteChat);
 
 export default router;
