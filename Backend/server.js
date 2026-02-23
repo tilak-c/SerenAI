@@ -20,7 +20,8 @@ app.set("trust proxy", 1);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://seren-ai-vshy.vercel.app"
+  "https://seren-ai-vshy.vercel.app",
+  "https://seren-ai-amber.vercel.app" 
 ];
 
 app.use(cors({
