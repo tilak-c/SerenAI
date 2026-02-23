@@ -14,7 +14,7 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
-console.log("MONGO_URI:", process.env.MONGO_URI);//link
+// console.log("MONGO_URI:", process.env.MONGO_URI);//link
 const app = express();
 
 app.set("trust proxy", 1);  
