@@ -14,7 +14,6 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
-// console.log("MONGO_URI:", process.env.MONGO_URI);//link
 const app = express();
 
 app.set("trust proxy", 1);  
@@ -56,9 +55,9 @@ app.use(session({
   }),
 
   cookie: {
-    secure: true,//false if failed
+    secure: true,
     httpOnly: true,
-    sameSite: "none",//lax if failed
+    sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000
   }
 }));

@@ -50,7 +50,6 @@ export default function Sidebar({ onSelectChat }) {
   };
 
 
-  // ⭐ CONFIRMATION TOAST
   const handleDelete = (chatId) => {
 
     toast.warning(

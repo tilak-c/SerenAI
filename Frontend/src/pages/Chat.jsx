@@ -113,10 +113,10 @@ const styles = {
 container: {
   display: "flex",
   flexDirection: "column",
-  flex: 1,              // ⭐ CRITICAL
+  flex: 1,           
   height: "100vh",
   background: "#071a12",
-  minHeight: 0          // ⭐ CRITICAL
+  minHeight: 0        
 },
 
 messages: {
@@ -126,7 +126,7 @@ messages: {
   display: "flex",
   flexDirection: "column",
   gap: "15px",
-  minHeight: 0          // ⭐ CRITICAL
+  minHeight: 0      
 },
 
 bottomRow: {

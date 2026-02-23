@@ -103,22 +103,3 @@ export const checkAuth = (req, res) => {
 
   res.json({ authenticated: true });
 };
-
-// Debug helper: returns minimal info about incoming cookies and session.
-// Use this only for debugging; do not expose in production without protecting it.
-export const debugSession = (req, res) => {
-  try {
-    const cookieHeader = req.headers.cookie || null;
-    const sessionId = req.sessionID || null;
-    const hasUser = !!req.session?.userId;
-
-    res.json({
-      cookieHeader,
-      sessionId,
-      hasUser,
-      userId: req.session?.userId || null
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
