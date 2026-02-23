@@ -55,9 +55,13 @@ app.use(session({
   }),
 
   cookie: {
-    secure: true,//false if failed
+    // Only set secure cookies in production (when served over HTTPS). During
+    // local development (or if backend is not HTTPS), secure must be false or
+    // the browser will ignore the cookie.
+    secure: process.env.NODE_ENV === "production",
     httpOnly: true,
-    sameSite: "none",//lax if failed
+    // required for cross-site cookies (frontend and backend on different origins)
+    sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000
   }
 }));
