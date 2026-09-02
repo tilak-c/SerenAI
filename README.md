@@ -1,9 +1,9 @@
-# 🧠 SERENAI  
-## 🚀 AI-Powered Emotional Analytics Platform  
+#  SERENAI  
+##  AI-Powered Emotional Analytics Platform  
 
 ---
 
-## 📌 Overview  
+##  Overview  
 
 **SerenAI** is an AI-driven emotional analytics web application built using the **MERN stack (MongoDB, Express.js, React.js, Node.js)** integrated with **Gemini AI**.
 
@@ -13,84 +13,84 @@ SerenAI is designed as a **mental wellness analytics system**, combining real-ti
 
 ---
 
-## 🌐 Live Demo  
+##  Live Demo  
 
-🔗 **Live App:**  
-👉 https://seren-ai-vshy.vercel.app/
-
----
-
-# ✨ Key Features  
+ **Live App:**  
+ https://seren-ai-vshy.vercel.app/
 
 ---
 
-## 🤖 AI-Powered Sentiment Analysis  
-
-- ✔ Integrated **Gemini AI API** for emotion detection  
-- ✔ Real-time sentiment classification from user messages  
-- ✔ Backend processing of emotional scores  
-- ✔ Daily mood aggregation logic  
+#  Key Features  
 
 ---
 
-## 📊 Interactive Emotional Dashboard  
+##  AI-Powered Sentiment Analysis  
 
-- ✔ Dynamic mood trend graphs  
-- ✔ Daily average sentiment computation  
-- ✔ Visual representation of emotional patterns  
-- ✔ Data-driven UI updates  
-
----
-
-## 🔐 Authentication & Data Security  
-
-- ✔ Secure JWT-based user authentication  
-- ✔ User-specific emotional history storage
+-  Integrated **Gemini AI API** for emotion detection  
+-  Real-time sentiment classification from user messages  
+-  Backend processing of emotional scores  
+-  Daily mood aggregation logic  
 
 ---
 
-## ⚙ Backend Architecture  
+##  Interactive Emotional Dashboard  
 
-- ✔ RESTful API structure  
-- ✔ Emotion score calculation logic  
-- ✔ MongoDB schema design for chat & mood storage  
-- ✔ Scalable backend service integration  
+-  Dynamic mood trend graphs  
+-  Daily average sentiment computation  
+-  Visual representation of emotional patterns  
+-  Data-driven UI updates  
 
 ---
 
-# 🛠 Tech Stack  
+##  Authentication & Data Security  
 
-## 🎨 Frontend  
+-  Secure JWT-based user authentication  
+-  User-specific emotional history storage
+
+---
+
+##  Backend Architecture  
+
+-  RESTful API structure  
+-  Emotion score calculation logic  
+-  MongoDB schema design for chat & mood storage  
+-  Scalable backend service integration  
+
+---
+
+#  Tech Stack  
+
+##  Frontend  
 - **React.js**  
 - **Charting libraries** (for mood visualization)
 
-## ⚙ Backend  
+##  Backend  
 - **Node.js**  
 - **Express.js**  
 - **MongoDB**  
 - **Mongoose**
 
-## 🤖 AI Integration  
+##  AI Integration  
 - **Gemini AI API**
 
-## ☁ Deployment  
+##  Deployment  
 - **Frontend:** Vercel  
 - **Backend:** Vercel  
 - **Database:** MongoDB Atlas  
 
 ---
 
-# 💡 Project Highlights  
+#  Project Highlights  
 
-✔ Demonstrates real-world **AI API integration**  
-✔ Implements backend **data aggregation & sentiment computation logic**  
-✔ Visualizes emotional trends through dynamic dashboards  
-✔ Combines full-stack development with AI-based analytics  
-✔ Simulates a scalable mental wellness monitoring platform  
+ Demonstrates real-world **AI API integration**  
+ Implements backend **data aggregation & sentiment computation logic**  
+ Visualizes emotional trends through dynamic dashboards  
+ Combines full-stack development with AI-based analytics  
+ Simulates a scalable mental wellness monitoring platform  
 
 ---
 
-## 🔮 Future Enhancements  
+##  Future Enhancements  
 
 - Emotion prediction trends  
 - Personalized mental health recommendations  
@@ -99,7 +99,6 @@ SerenAI is designed as a **mental wellness analytics system**, combining real-ti
 
 ---
 
-## 👩‍💻 Author  
+##  Author  
 
 **Tilakavati Adhireddy**  
-MERN Full Stack Developer  
